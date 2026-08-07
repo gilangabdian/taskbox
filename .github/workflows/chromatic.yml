@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: yarn
-        #👇 Adds Chromatic as a step in the workflow
+        #👇 Adds Chromatic as a step in the workflow and test
       - uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
