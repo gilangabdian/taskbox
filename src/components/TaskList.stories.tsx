@@ -1,9 +1,14 @@
-import TaskList from "./TaskList";
-import * as TaskStories from "./Task.stories";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Provider } from "react-redux";
+
 import type { TaskData } from "../types";
+
+import { Provider } from "react-redux";
+
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+
+import TaskList from "./TaskList";
+
+import * as TaskStories from "./Task.stories";
 
 // A super-simple mock of the state of the store
 export const MockedState = {
@@ -48,9 +53,7 @@ const meta = {
   title: "TaskList",
   decorators: [(story) => <div style={{ margin: "3rem" }}>{story()}</div>],
   tags: ["autodocs"],
-  args: {
-    ...TaskStories.ActionsData,
-  },
+  excludeStories: /.*MockedState$/,
 } satisfies Meta<typeof TaskList>;
 
 export default meta;
